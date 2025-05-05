@@ -1,5 +1,6 @@
 plugins {
     kotlin("jvm") version "2.1.20"
+    application
 }
 
 group = "org.example"
@@ -13,7 +14,6 @@ repositories {
 dependencies {
     implementation("org.mongodb:mongodb-driver-kotlin-coroutine:$mongoVersion")
     implementation("org.mongodb:mongodb-driver-kotlin-extensions:$mongoVersion")
-    testImplementation(kotlin("test"))
 }
 
 tasks.test {
@@ -22,4 +22,8 @@ tasks.test {
 
 kotlin {
     jvmToolchain(20)
+}
+
+application {
+    mainClass = "org.example.MainKt"
 }
